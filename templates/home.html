@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body_block %}
+<h1 align='center'>News Lists</h1>
+<ul>
+{% for a in news %}
+
+<li id='nlist'>
+
+       <a href='{% url 'newsdetail' a.pk %}' >  {{a.title}}     </a>         <br>
+    
+          {{a.description}}
+
+
+
+
+</li>
+{% endfor %}
+</ul>
+{% endblock body_block %}
