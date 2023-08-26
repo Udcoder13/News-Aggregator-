@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+ {% load bootstrap3 %}
+
+{% block body_block %}
+<style>
+  h1{
+      color:black;
+      text-align:center;
+      font-family: havenrest;
+      border-bottom: 5px solid black;
+      border-radius: 10px;
+      width:15%;
+      margin-left:550px;
+    }
+</style>
+<div class="container">
+  <h1>Login</h1>
+  <form method="POST" class="form-control">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">Login</button>
+    {% endbuttons %}
+  </form>
+</div>
+{% endblock %}

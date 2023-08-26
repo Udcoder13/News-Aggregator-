@@ -15,18 +15,17 @@ from Newss import models
 
 
 def get_news():
-    apikey = "f894d7ab6caa85386f38bf6b0bb39f1a"
-    url = f"https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey={apikey}"
+    url= "https://newsapi.org/v2/top-headlines?country=in&apiKey=a4afc29713c246649d96d08b5e5eb70d"
+
+
     data=requests.get(url)
-    print("Status Code:" ,data.status_code)
-    print("Response Content:", data.content) # Add this line to see the HTTP status code
     if data.status_code==200:
        print(data.json())
        return data.json()
     else:
        print('failed')
  #     return None
-    
+ 
 def save_data():
     data=get_news()
     if data and "articles" in data:
@@ -38,8 +37,11 @@ def save_data():
              description=a['description'],
              content=a['content'],
              url=a['url'],
-             image=a['image'],
+             image=a['urlToImage'],
              publishedAt=a['publishedAt'],
+             source='News',
           )
           item.save()
+     
+        
 save_data()

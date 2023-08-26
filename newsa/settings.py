@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Newss',
+    'bootstrap3',
+    'accounts',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,7 +55,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'newsa.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -121,7 +124,8 @@ STATICFILES_DIRS = [
     BASE_DIR.joinpath('static'),
 ]
 
-
+LOGIN_URL = 'login'  # Use the name of the URL pattern for the login page
+LOGIN_REDIRECT_URL = 'newslist' # Use the name of the URL
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

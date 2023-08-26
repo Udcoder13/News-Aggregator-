@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body_block %}
+    <h1>Search Results for "{{ search_query }}"</h1>
+
+     <ul>
+        {% for article in search_results %}
+        {% if forloop.counter0|divisibleby:3 %}
+        <div class="row">
+        {% endif %}
+        <div class="col-md-4">
+        <div class="card" style="width: 30rem;">
+            {% if article.urlToImage != None %}
+            <img src='{{article.urlToImage}}' class="card-img-top" alt="Image Not found" width=200 height=200>
+            {% else %}
+            <img src='{% static 'images/imgnf.png' %}' class="card-img-top" alt="Image Not found" width=200 height=200>
+            {% endif %}
+             <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <p class="card-text">{{article.description}}    </p>
+              <a href="{{article.url}}" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter0|add:1|divisibleby:3 or forloop.last %}
+        </div>
+        {% endif %}
+        {% empty %}
+            <p>No results found.</p>
+        {% endfor %}
+        
+        </ul>
+        
+{% endblock %}
