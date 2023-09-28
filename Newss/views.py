@@ -25,7 +25,7 @@ class NewsDetail(DetailView):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.user = request.user
-            comment.news = self.get_object()  # Use self.get_object() to get the news article instance
+            comment.news = self.get_object()  # Using self.get_object() to get the news article instance
             comment.save()
             return self.get(request,**kwargs)
         else:
