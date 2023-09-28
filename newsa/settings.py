@@ -123,7 +123,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR.joinpath('static'),
 ]
-
+import os
+ 
 LOGIN_URL = 'login'  # Use the name of the URL pattern for the login page
 LOGIN_REDIRECT_URL = 'newslist' # Use the name of the URL
 # Default primary key field type
